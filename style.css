@@ -1,32 +1,62 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap");
 
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap");
+
+
+/* =================================
+   Color Theme
+================================= */
+
+:root {
+  /* Main backgrounds */
+  --color-primary: #edf4f8;
+  --color-secondary: #f5f9fc;
+
+  /* Cards and interactive elements */
+  --color-surface: #dceaf3;
+  --color-surface-hover: #c8ddea;
+
+  /* Navigation and footer */
+  --color-header: #7997aa;
+  --color-footer: #7997aa;
+
+  /* Text */
+  --color-heading: #eef7fa;
+  --color-text: #1f2838;
+  --color-muted: #68758a;
+  --color-white: #ffffff;
+  --color-white-soft: rgba(255, 255, 255, 0.86);
+  --color-white-faint: rgba(255, 255, 255, 0.7);
+
+  /* Accent colors */
+  --color-accent: #7296b1;
+  --color-accent-dark: #4f7592;
+  --color-border: #b8ccda;
+
+  /* Transparent colors */
+  --color-header-border: rgba(27, 41, 69, 0.12);
+  --color-social-background: rgba(52, 130, 179, 0.7);
+  --color-social-border: rgba(4, 22, 57, 0.35);
+  --color-hero-overlay: rgba(33, 86, 124, 0.548);
+  --color-contact-overlay: rgba(11, 49, 82, 0.589);
+  --color-modal-overlay: rgba(27, 41, 69, 0.7);
+
+  /* Shadows */
+  --color-shadow: rgba(27, 41, 69, 0.1);
+  --color-modal-shadow: rgba(27, 41, 69, 0.25);
+
+  /* Image */
+  --image-hero: url("./assets/hero-blue.jpg");
+
+  /* Fonts */
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-body: "DM Sans", TimeNew, sans-serif;
+}
+
 
 /* =================================
    Global
 ================================= */
-
-:root {
-  --navy: #1b2945;
-  --navy-light: #344462;
-
-  --text: #1b2945;
-  --secondary-text: #626d83;
-
-  /* All main sections use the Resume background */
-  --pink-primary: #f7e3ea;
-  --pink-secondary: #f7e3ea;
-
-  --pink-card: #ecc4d2;
-  --pink-card-hover: #dca7ba;
-  --pink-footer:#fad0da;
-
-  --border: #d5a6b8;
-  --white: #ffffff;
-
-  --serif: "Playfair Display", Georgia, serif;
-  --sans-serif: "DM Sans", Arial, sans-serif;
-}
-
 
 * {
   box-sizing: border-box;
@@ -41,11 +71,14 @@ html {
 
 body {
   margin: 0;
-  background: var(--pink-primary);
-  color: var(--text);
-  font-family: var(--sans-serif);
+
+  background: var(--color-primary);
+  color: var(--color-text);
+
+  font-family: var(--font-body);
   font-size: 12px;
   line-height: 1.7;
+
   -webkit-font-smoothing: antialiased;
 }
 
@@ -88,13 +121,14 @@ img {
 
 .site-header {
   width: 100%;
+
   position: fixed;
   top: 0;
   left: 0;
   z-index: 100;
 
-  background: #fad0da;
-  border-bottom: 1px solid rgba(27, 41, 69, 0.12);
+  background: var(--color-header);
+  border-bottom: 1px solid var(--color-header-border);
 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -113,8 +147,9 @@ img {
 
 
 .logo {
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 600;
 }
@@ -129,7 +164,9 @@ img {
 
 .nav-links a {
   position: relative;
-  color: var(--navy-light);
+
+  color: var(--color-text);
+
   font-size: 11px;
   font-weight: 500;
 }
@@ -145,7 +182,7 @@ img {
   left: 0;
   bottom: -7px;
 
-  background: #ca809d;
+  background: var(--color-accent);
 
   transition: width 0.25s ease;
 }
@@ -159,7 +196,7 @@ img {
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--navy);
+  color: var(--color-heading);
 }
 
 
@@ -178,12 +215,12 @@ img {
   position: relative;
   overflow: hidden;
 
-  background-image: url("./assets/hero-pink.jpg");
+  background-image: var(--image-hero);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  color: var(--navy);
+  color: var(--color-heading);
 }
 
 
@@ -191,7 +228,7 @@ img {
   position: absolute;
   inset: 0;
 
-  background: rgba(248, 208, 223, 0.582);
+  background: var(--color-hero-overlay);
 }
 
 
@@ -208,8 +245,9 @@ img {
 .hero h1 {
   margin-bottom: 24px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-heading);
+
+  font-family: var(--font-heading);
   font-size: clamp(42px, 5vw, 60px);
   font-weight: 500;
   letter-spacing: -0.025em;
@@ -222,7 +260,7 @@ img {
   height: 2px;
   margin: 0 auto 30px;
 
-  background: #aa7087;
+  background: var(--color-accent-dark);
 }
 
 
@@ -230,7 +268,8 @@ img {
   max-width: 700px;
   margin: 0 auto 36px;
 
-  color: #45516a;
+  color: var(--color-heading);
+
   font-size: clamp(12px, 1.2vw, 14px);
   line-height: 1.9;
 }
@@ -256,9 +295,9 @@ img {
   justify-content: center;
   gap: 9px;
 
-  border: 1px solid rgba(27, 41, 69, 0.35);
-  background: rgba(188, 150, 161, 0.64);
-  color: var(--navy);
+  border: 1px solid var(--color-social-border);
+  background: var(--color-social-background);
+  color: var(--color-heading);
 
   font-size: 11px;
   font-weight: 500;
@@ -275,8 +314,9 @@ img {
 
 .social-tab:hover {
   transform: translateY(-2px);
-  background: var(--navy);
-  color: var(--white);
+
+  background: var(--color-heading);
+  color: var(--color-white);
 }
 
 
@@ -297,7 +337,7 @@ img {
 
 
 /* =================================
-   Shared section styles
+   Shared Section Styles
 ================================= */
 
 .page-section {
@@ -313,8 +353,9 @@ img {
 .section-heading h2 {
   margin-bottom: 16px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
   font-size: 30px;
   font-weight: 600;
   line-height: 1.2;
@@ -325,7 +366,7 @@ img {
   width: 54px;
   height: 3px;
 
-  background: #c18ca0;
+  background: var(--color-accent);
 }
 
 
@@ -339,7 +380,7 @@ img {
   display: flex;
   align-items: center;
 
-  background: var(--pink-primary);
+  background: var(--color-primary);
 }
 
 
@@ -356,7 +397,7 @@ img {
   height: 350px;
   overflow: hidden;
 
-  background: var(--pink-card);
+  background: var(--color-surface);
 }
 
 
@@ -365,6 +406,7 @@ img {
   height: 100%;
 
   display: block;
+
   object-fit: cover;
   object-position: center;
 }
@@ -378,7 +420,8 @@ img {
 .about-text p {
   margin-bottom: 20px;
 
-  color: #46516a;
+  color: var(--color-text);
+
   font-size: 13px;
   line-height: 1.9;
 }
@@ -390,11 +433,11 @@ img {
 
 
 /* =================================
-   Resume timeline
+   Page 3: Resume Timeline
 ================================= */
 
 .resume {
-  background: var(--pink-secondary);
+  background: var(--color-secondary);
 }
 
 
@@ -412,10 +455,11 @@ img {
   margin-bottom: 28px;
   padding-bottom: 12px;
 
-  border-bottom: 3px solid var(--border);
+  border-bottom: 3px solid var(--color-border);
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
   font-size: 20px;
   font-weight: 600;
 }
@@ -439,12 +483,13 @@ img {
   bottom: 12px;
   left: 0;
 
-  background: var(--border);
+  background: var(--color-border);
 }
 
 
 .timeline-item {
   position: relative;
+
   padding: 5px 0 43px;
 }
 
@@ -463,14 +508,16 @@ img {
   left: -71px;
 
   border-radius: 50%;
-  background: #b76f8a;
+
+  background: var(--color-accent-dark);
 }
 
 
 .timeline-date {
   margin-bottom: 11px;
 
-  color: #a45e79;
+  color: var(--color-accent-dark);
+
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -481,8 +528,9 @@ img {
 .timeline-content h4 {
   margin-bottom: 6px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 500;
 }
@@ -491,7 +539,8 @@ img {
 .timeline-organization {
   margin-bottom: 10px;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 12px;
   font-weight: 500;
 }
@@ -501,14 +550,15 @@ img {
   max-width: 680px;
   margin-bottom: 0;
 
-  color: #535f77;
+  color: var(--color-text);
+
   font-size: 11px;
   line-height: 1.8;
 }
 
 
 /* =================================
-   Background cards
+   Background Cards
 ================================= */
 
 .background {
@@ -517,7 +567,7 @@ img {
   display: flex;
   align-items: center;
 
-  background: var(--pink-secondary);
+  background: var(--color-secondary);
 }
 
 
@@ -525,7 +575,8 @@ img {
   max-width: 520px;
   margin: -30px 0 40px;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 12px;
   line-height: 1.8;
 }
@@ -547,9 +598,9 @@ img {
 
   position: relative;
 
-  border: 1px solid var(--border);
-  background: var(--pink-card);
-  color: var(--navy);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-heading);
 
   text-align: left;
   cursor: pointer;
@@ -563,13 +614,15 @@ img {
 
 .background-card:hover {
   transform: translateY(-4px);
-  background: var(--pink-card-hover);
-  box-shadow: 0 14px 30px rgba(27, 41, 69, 0.09);
+
+  background: var(--color-surface-hover);
+  box-shadow: 0 14px 30px var(--color-shadow);
 }
 
 
 .background-number {
-  color: #9e5873;
+  color: var(--color-accent-dark);
+
   font-size: 10px;
   letter-spacing: 0.1em;
 }
@@ -586,7 +639,8 @@ img {
 .background-label {
   margin-bottom: 7px;
 
-  color: #8b6273;
+  color: var(--color-accent-dark);
+
   font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -596,7 +650,9 @@ img {
 .background-card-content strong {
   margin-bottom: 9px;
 
-  font-family: var(--serif);
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 500;
 }
@@ -605,7 +661,8 @@ img {
 .background-card-content > span:last-child {
   max-width: 250px;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 11px;
 }
 
@@ -615,12 +672,14 @@ img {
   top: 20px;
   right: 20px;
 
+  color: var(--color-heading);
+
   font-size: 14px;
 }
 
 
 /* =================================
-   Background popup
+   Background Popup
 ================================= */
 
 .background-modal {
@@ -631,7 +690,7 @@ img {
   display: none;
   justify-content: flex-end;
 
-  background: rgba(27, 41, 69, 0.68);
+  background: var(--color-modal-overlay);
 }
 
 
@@ -648,7 +707,7 @@ img {
   position: relative;
   overflow-y: auto;
 
-  background: var(--pink-secondary);
+  background: var(--color-secondary);
 }
 
 
@@ -662,7 +721,7 @@ img {
 
   border: none;
   background: transparent;
-  color: var(--navy);
+  color: var(--color-heading);
 
   font-size: 24px;
   cursor: pointer;
@@ -677,7 +736,8 @@ img {
 .modal-heading > p {
   margin-bottom: 7px;
 
-  color: #a45e79;
+  color: var(--color-accent-dark);
+
   font-size: 9px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -687,8 +747,9 @@ img {
 .modal-heading h2 {
   margin-bottom: 15px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-heading);
+
+  font-family: var(--font-heading);
   font-size: 27px;
   font-weight: 500;
 }
@@ -697,12 +758,13 @@ img {
 .modal-timeline {
   padding-left: 33px;
 
-  border-left: 2px solid var(--border);
+  border-left: 2px solid var(--color-border);
 }
 
 
 .modal-timeline-item {
   position: relative;
+
   padding-bottom: 38px;
 }
 
@@ -718,7 +780,8 @@ img {
   left: -39px;
 
   border-radius: 50%;
-  background: #b76f8a;
+
+  background: var(--color-accent-dark);
 }
 
 
@@ -730,7 +793,8 @@ img {
 .modal-date {
   margin-bottom: 9px;
 
-  color: #a45e79;
+  color: var(--color-accent-dark);
+
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.07em;
@@ -741,8 +805,9 @@ img {
 .modal-timeline-item h3 {
   margin-bottom: 4px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-heading);
+
+  font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 500;
 }
@@ -751,7 +816,8 @@ img {
 .modal-timeline-item h4 {
   margin-bottom: 10px;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 11px;
   font-weight: 500;
 }
@@ -760,7 +826,8 @@ img {
 .modal-timeline-item > p:last-child {
   margin-bottom: 0;
 
-  color: #535f77;
+  color: var(--color-text);
+
   font-size: 11px;
   line-height: 1.8;
 }
@@ -776,7 +843,7 @@ img {
   display: flex;
   align-items: center;
 
-  background: var(--pink-primary);
+  background: var(--color-primary);
 }
 
 
@@ -795,12 +862,12 @@ img {
   align-items: center;
 
   border: none;
-  border-left: 4px solid #b9718c;
-  background: var(--pink-card);
-  color: var(--navy);
+  border-left: 4px solid var(--color-accent);
+  background: var(--color-surface);
+  color: var(--color-text);
 
   text-align: left;
-  font-size: 11px;
+  font-size: 12px;
   cursor: pointer;
 
   transition:
@@ -813,20 +880,20 @@ img {
 .skill-tab:hover {
   transform: translateY(-2px);
 
-  border-left-color: #a45e79;
-  background: var(--pink-card-hover);
-  color: var(--navy);
+  border-left-color: var(--color-accent-dark);
+  background: var(--color-surface-hover);
+  color: var(--color-text);
 }
 
 
 .skill-tab:focus-visible {
-  outline: 2px solid #a45e79;
+  outline: 2px solid var(--color-accent-dark);
   outline-offset: 3px;
 }
 
 
 /* =================================
-   Skills popup
+   Skills Popup
 ================================= */
 
 .skill-modal {
@@ -840,7 +907,7 @@ img {
   align-items: center;
   justify-content: center;
 
-  background: rgba(27, 41, 69, 0.7);
+  background: var(--color-modal-overlay);
 }
 
 
@@ -855,16 +922,18 @@ img {
 
   position: relative;
 
-  background: var(--pink-secondary);
-  box-shadow: 0 25px 80px rgba(27, 41, 69, 0.25);
+  background: var(--color-secondary);
+
+  box-shadow: 0 25px 80px var(--color-modal-shadow);
 }
 
 
 .skill-modal-box h2 {
   margin-bottom: 13px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-text);
+
+  font-family: var(--font-heading);
   font-size: 20px;
 }
 
@@ -872,7 +941,8 @@ img {
 .skill-modal-box p {
   margin-bottom: 0;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 11px;
 }
 
@@ -887,7 +957,7 @@ img {
 
   border: none;
   background: transparent;
-  color: var(--navy);
+  color: var(--color-text);
 
   font-size: 21px;
   cursor: pointer;
@@ -899,7 +969,7 @@ img {
 ================================= */
 
 .beyond-work {
-  background: var(--pink-secondary);
+  background: var(--color-secondary);
 }
 
 
@@ -907,7 +977,8 @@ img {
   max-width: 540px;
   margin: -30px 0 42px;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 12px;
   line-height: 1.8;
 }
@@ -923,8 +994,8 @@ img {
 .interest-card {
   overflow: hidden;
 
-  border: 1px solid var(--border);
-  background: var(--pink-card);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
 }
 
 
@@ -934,10 +1005,10 @@ img {
   display: grid;
   place-items: center;
 
-  background: #e5b9c9;
-  color: #85556a;
+  background: var(--color-surface-hover);
+  color: var(--color-accent-dark);
 
-  font-family: var(--serif);
+  font-family: var(--font-heading);
   font-size: 11px;
 }
 
@@ -959,7 +1030,8 @@ img {
 .interest-number {
   margin-bottom: 12px;
 
-  color: #a45e79;
+  color: var(--color-accent-dark);
+
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 0.1em;
@@ -969,8 +1041,9 @@ img {
 .interest-content h3 {
   margin-bottom: 10px;
 
-  color: var(--navy);
-  font-family: var(--serif);
+  color: var(--color-heading);
+
+  font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 500;
 }
@@ -979,7 +1052,8 @@ img {
 .interest-content > p:last-child {
   margin-bottom: 0;
 
-  color: var(--secondary-text);
+  color: var(--color-muted);
+
   font-size: 11px;
   line-height: 1.75;
 }
@@ -997,27 +1071,28 @@ img {
 
   background-image:
     linear-gradient(
-      rgba(81, 52, 64, 0.52),
-      rgba(81, 52, 64, 0.52)
+      var(--color-contact-overlay),
+      var(--color-contact-overlay)
     ),
-    url("./assets/hero-pink.jpg");
+    var(--image-hero);
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
-  color: var(--white);
+  color: var(--color-white);
 }
 
-/* Contact title */
+
 .contact .section-heading h2 {
-  color: var(--white);
+  color: var(--color-white);
 }
 
-/* Pink-white line */
+
 .contact .heading-line {
-  background: rgba(255, 255, 255, 0.7);
+  background: var(--color-white-faint);
 }
+
 
 .contact-content {
   display: grid;
@@ -1026,31 +1101,36 @@ img {
   align-items: end;
 }
 
+
 .contact-content > p {
   max-width: 620px;
   margin: 0;
 
-  color: rgba(255, 255, 255, 0.86);
+  color: var(--color-white-soft);
+
   font-size: 13px;
   line-height: 1.8;
 }
+
 
 .contact-links {
   display: flex;
   gap: 25px;
 }
 
+
 .contact-links a {
   padding-bottom: 3px;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.75);
-  color: var(--white);
+  border-bottom: 1px solid var(--color-white-faint);
+  color: var(--color-white);
 
   font-size: 11px;
 }
 
+
 .contact-links a:hover {
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-white-faint);
 }
 
 
@@ -1065,8 +1145,8 @@ img {
   align-items: center;
   justify-content: space-between;
 
-  background: var(--pink-footer);
-  color: var(--navy);
+  background: var(--color-footer);
+  color: var(--color-heading);
 
   font-size: 10px;
 }
@@ -1078,7 +1158,7 @@ img {
 
 
 .site-footer a {
-  color: var(--navy);
+  color: var(--color-heading);
 }
 
 
@@ -1091,35 +1171,43 @@ img {
     width: min(100% - 44px, 680px);
   }
 
+
   .navbar {
     width: calc(100% - 44px);
   }
 
+
   .nav-links {
     gap: 19px;
   }
+
 
   .about-layout {
     grid-template-columns: 220px minmax(0, 1fr);
     gap: 40px;
   }
 
+
   .about-photo {
     width: 220px;
     height: 300px;
   }
 
+
   .background-grid {
     grid-template-columns: 1fr;
   }
+
 
   .background-card {
     min-height: 170px;
   }
 
+
   .interest-grid {
     grid-template-columns: 1fr;
   }
+
 
   .interest-card {
     max-width: 520px;
@@ -1136,74 +1224,92 @@ img {
     scroll-padding-top: 58px;
   }
 
+
   .navbar {
     width: calc(100% - 36px);
     height: 58px;
   }
 
+
   .logo {
     font-size: 17px;
   }
+
 
   .nav-links {
     gap: 15px;
   }
 
+
   .nav-links a {
     font-size: 9px;
   }
+
 
   .nav-links a:nth-child(2),
   .nav-links a:nth-child(3) {
     display: none;
   }
 
+
   .hero {
     padding: 95px 22px 50px;
   }
+
 
   .hero h1 {
     font-size: 40px;
   }
 
+
   .hero-description {
     font-size: 11px;
   }
 
+
   .hero-socials {
     width: 100%;
+
     flex-direction: column;
     align-items: center;
   }
+
 
   .social-tab {
     width: min(250px, 100%);
   }
 
+
   .page-section {
     padding: 58px 0;
   }
+
 
   .section-container {
     width: calc(100% - 40px);
   }
 
+
   .section-heading {
     margin-bottom: 40px;
   }
+
 
   .section-heading h2 {
     font-size: 25px;
   }
 
+
   .about {
     min-height: auto;
   }
+
 
   .about-layout {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+
 
   .about-photo {
     width: 100%;
@@ -1211,43 +1317,59 @@ img {
     height: 325px;
   }
 
+
   .about-text p {
     font-size: 11px;
   }
+
 
   .timeline {
     padding-left: 38px;
   }
 
+
   .timeline-marker {
     left: -44px;
   }
+
 
   .timeline-content h4 {
     font-size: 15px;
   }
 
+
   .background-modal-page {
     padding: 60px 27px;
   }
+
 
   .skills-grid {
     grid-template-columns: 1fr;
   }
 
+
   .skill-tab {
     min-height: 50px;
+
     font-size: 10px;
   }
+
 
   .interest-grid {
     grid-template-columns: 1fr;
   }
 
+
   .contact-content {
     grid-template-columns: 1fr;
     gap: 32px;
   }
+
+
+  .contact-links {
+    flex-wrap: wrap;
+  }
+
 
   .site-footer {
     padding: 18px 20px;
