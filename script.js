@@ -11,8 +11,14 @@ const resumeModalCompany = document.getElementById("resume-modal-company");
 const resumeModalLocation = document.getElementById("resume-modal-location");
 const resumeModalCopy = document.getElementById("resume-modal-copy");
 const resumeModalClose = resumeModal ? resumeModal.querySelector(".resume-modal-close") : null;
+const interestItems = document.querySelectorAll(".interest-item");
+const interestModal = document.getElementById("interest-modal");
+const interestModalTitle = document.getElementById("interest-modal-title");
+const interestModalCopy = document.getElementById("interest-modal-copy");
+const interestModalClose = interestModal ? interestModal.querySelector(".interest-modal-close") : null;
 
 let lastFocusedResumeItem = null;
+let lastFocusedInterestItem = null;
 
 function closeMenu() {
   if (!menuToggle || !navigation) return;
@@ -48,6 +54,28 @@ function closeResumeModal() {
   lastFocusedResumeItem?.focus();
 }
 
+function openInterestModal(item) {
+  if (!interestModal) return;
+
+  lastFocusedInterestItem = item;
+  interestModalTitle.textContent = item.dataset.interestTitle;
+  interestModalCopy.innerHTML = `<p>${item.querySelector("p")?.textContent || ""}</p>`;
+
+  interestModal.classList.add("open");
+  interestModal.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  interestModalClose?.focus();
+}
+
+function closeInterestModal() {
+  if (!interestModal) return;
+
+  interestModal.classList.remove("open");
+  interestModal.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+  lastFocusedInterestItem?.focus();
+}
+
 resumeItems.forEach((item) => {
   item.addEventListener("click", () => openResumeModal(item));
 
@@ -60,6 +88,20 @@ resumeItems.forEach((item) => {
 
 resumeModal?.addEventListener("click", (event) => {
   if (event.target.closest("[data-resume-close]")) closeResumeModal();
+});
+
+interestItems.forEach((item) => {
+  item.addEventListener("click", () => openInterestModal(item));
+
+  item.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    openInterestModal(item);
+  });
+});
+
+interestModal?.addEventListener("click", (event) => {
+  if (event.target.closest("[data-interest-close]")) closeInterestModal();
 });
 
 if (menuToggle && navigation) {
@@ -96,6 +138,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key !== "Escape") return;
   closeMenu();
   closeResumeModal();
+  closeInterestModal();
 });
 
 if (currentYear) currentYear.textContent = String(new Date().getFullYear());

@@ -44,7 +44,7 @@
           <p class="hero-role">Capital markets, ESG <br>and sports.</p>
           <p class="hero-description">
             Investment banker with experience in IPOs and M&A, 
-            alongside prior experience in equity research, consulting, and private equity. 
+            alongside prior experience in consulting and equities. 
             My background in ESG informs my interest in the energy transition 
             and in companies shaping a more efficient and sustainable economy.
           </p>
@@ -87,9 +87,9 @@
           <p class="lead-paragraph">
             B.A. in Economics from the University of Chicago and
             MPA in Environmental Science and Policy from Columbia University
-            SIPA.
+            SIPA. <br> 
             With academic bg in economics and environmental policy, 
-            my experience includes investment banking, consulting, equity research, equity sales and private equity.
+            my experience includes investment banking, consulting, equity sales and equity research.
           </p>
           <p>
            I am particularly interested in the intersection of capital markets and industrial transformation, 
@@ -114,6 +114,20 @@
         </div>
 
         <div class="resume-list">
+          <article class="resume-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="resume-modal"
+            data-resume-title="Investment Banking Analyst"
+            data-resume-date="Aug 2026 — Present"
+            data-resume-company="CLSA"
+            data-resume-location="Hong Kong">
+            <p class="resume-date">Aug 2026 — Present</p>
+            <div class="resume-content">
+              <div class="resume-title-row">
+                <div><h3>Investment Banking Analyst</h3><p class="resume-company">CLSA · Hong Kong</p></div>
+              </div>
+              <div class="resume-modal-description" hidden></div>
+            </div>
+          </article>
+
           <article class="resume-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="resume-modal"
             data-resume-title="Off-Cycle Intern"
             data-resume-date="Jun 2024 — Nov 2024"
@@ -174,24 +188,6 @@
             </div>
           </article>
 
-          <article class="resume-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="resume-modal"
-            data-resume-title="Private Equity Intern"
-            data-resume-date="Feb 2022 — May 2022"
-            data-resume-company="Morgan Stanley"
-            data-resume-location="Beijing">
-            <p class="resume-date">Feb 2022 — May 2022</p>
-            <div class="resume-content">
-              <div class="resume-title-row">
-                <div><h3>Private Equity Intern</h3><p class="resume-company">Morgan Stanley · Beijing</p></div>
-              </div>
-              <div class="resume-modal-description" hidden>
-                <ul>
-                  <li>Conducted research on China's K–12 sports industry using the IMG database, assessing market size, growth, competitive dynamics and preliminary investment merits and risks.</li>
-                  <li>Constructed precedent-transactions analyses and evaluated recent IPOs to triangulate valuation.</li>
-                </ul>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -224,14 +220,14 @@
             <h3>Education</h3>
             <article class="background-item">
               <p class="background-date">2025 — 2026</p>
-              <h4>MPA in Environmental Science and Policy</h4>
-              <p class="background-place">Columbia University · New York</p>
+              <h4>Columbia University SIPA</h4>
+              <p class="background-place">MPA in Environmental Science and Policy · New York</p>
               <p>Graduate study in environmental policy, economics and sustainable development.</p>
             </article>
             <article class="background-item">
               <p class="background-date">Graduated 2025</p>
-              <h4>B.A. in Economics, Minor in Architecture</h4>
-              <p class="background-place">The University of Chicago · Chicago</p>
+              <h4>University of Chicago</h4>
+              <p class="background-place">B.A. in Economics, Minor in Architecture· Chicago</p>
               <p>Coursework in econometrics, policy analysis, statistics and forecasting.</p>
             </article>
           </div>
@@ -240,8 +236,8 @@
             <h3>Leadership</h3>
             <article class="background-item">
               <p class="background-date">2023 — 2025</p>
-              <h4>Vice President of Media and Publicity</h4>
-              <p class="background-place">University of Chicago CSSA · Chicago</p>
+              <h4>University of Chicago CSSA</h4>
+              <p class="background-place">Vice President of Media and Publicity · Chicago</p>
               <p>Managed WeChat and Instagram communications, promoted more than 12 events annually and coordinated campaigns for over 50 sponsors.</p>
             </article>
           </div>
@@ -283,33 +279,48 @@
         </div>
 
         <div class="interests-list">
-          <article class="interest-item">
+          <article class="interest-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="interest-modal"
+            data-interest-title="Competitive Swimming">
             <h3>Competitive Swimming</h3>
-            <p>A provincial gold medalist. Years of training shaped my resilience, consistency and ability to perform under pressure.</p>
+            <p>A provincial gold medalist.<br>Years of training shaped my resilience, consistency and ability to perform under pressure.</p>
           </article>
-          <article class="interest-item">
+          <article class="interest-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="interest-modal"
+            data-interest-title="Golf">
             <h3>Golf</h3>
-            <p>A former member of an amateur national team. Golf strengthened my patience, concentration and independent decision-making.</p>
+            <p>A former member of an amateur national team.<br>Golf strengthened my patience, concentration and independent decision-making.</p>
           </article>
-          <article class="interest-item">
-            <h3>Skiing, Architecture &amp; Design</h3>
+          <article class="interest-item" tabindex="0" role="button" aria-haspopup="dialog" aria-controls="interest-modal"
+            data-interest-title="Architecture">
+            <h3>Architecture</h3>
             <p>I enjoy exploring new environments and studying how thoughtful design shapes the way people experience places and ideas.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <div class="interest-modal" id="interest-modal" aria-hidden="true">
+      <div class="interest-modal-backdrop" data-interest-close></div>
+      <section class="interest-modal-panel" role="dialog" aria-modal="true" aria-labelledby="interest-modal-title">
+        <button class="interest-modal-close" type="button" aria-label="Close interest details" data-interest-close>×</button>
+        <p class="section-kicker">Beyond work</p>
+        <h2 id="interest-modal-title"></h2>
+        <div class="interest-modal-image" aria-label="Image placeholder">Image coming soon</div>
+        <div class="interest-modal-copy" id="interest-modal-copy"></div>
+      </section>
+    </div>
+
     <section class="contact page-section" id="contact">
       <div class="section-container contact-grid">
         <div>
           <p class="section-kicker section-kicker-light">06 / Contact</p>
-          <h2>Let’s connect.</h2>
+          <h2>Let’s connect</h2>
         </div>
 
         <div class="contact-copy">
-          <p>I am always glad to connect around finance, industrial technology, the energy transition and emerging investment themes.</p>
+          <p>Happy to connect with people who interested in finance, 
+            industrials and sustainable investing.</p>
           <div class="contact-links">
-            <a href="mailto:evonnedeng0618@gmail.com">evonnedeng0618@gmail.com</a>
+            <a href="mailto:evonnedeng0618@gmail.com">GMAIL</a>
             <a href="https://www.linkedin.com/in/evonne-deng-28836b22a/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://www.instagram.com/evonne_isme/" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>

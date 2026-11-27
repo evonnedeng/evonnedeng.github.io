@@ -316,10 +316,14 @@ h2 {
 .about-copy p { max-width: 700px; margin-bottom: 24px; }
 
 .about-copy .lead-paragraph {
-  color: var(--color-ink);
-  font-family: var(--font-display);
-  font-size: 1.55rem;
-  line-height: 1.55;
+  color: var(--color-ink-soft);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.about-copy .lead-paragraph br {
+  display: block;
 }
 
 /* Experience */
@@ -572,6 +576,18 @@ body.modal-open { overflow: hidden; }
   grid-template-columns: minmax(180px, 0.55fr) minmax(0, 1fr);
   gap: 40px;
   border-bottom: 1px solid var(--color-line);
+  cursor: pointer;
+  transition: background 0.2s ease, padding 0.2s ease;
+}
+
+.interest-item:hover,
+.interest-item:focus-visible {
+  outline: none;
+  background: rgba(220, 232, 240, 0.34);
+}
+
+.interest-item:focus-visible {
+  box-shadow: inset 3px 0 0 var(--color-accent);
 }
 
 .interest-item h3 {
@@ -582,6 +598,80 @@ body.modal-open { overflow: hidden; }
 }
 
 .interest-item p { margin-bottom: 0; }
+
+/* Beyond-work detail modal. The image area is ready for a future upload. */
+
+.interest-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.interest-modal.open { display: flex; }
+
+.interest-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 37, 56, 0.68);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.interest-modal-panel {
+  width: min(700px, 100%);
+  max-height: min(720px, calc(100vh - 48px));
+  overflow-y: auto;
+  position: relative;
+  z-index: 1;
+  padding: 52px 58px 56px;
+  background: var(--color-paper);
+  box-shadow: 0 28px 80px rgba(13, 37, 56, 0.28);
+}
+
+.interest-modal-panel h2 {
+  margin-bottom: 24px;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.interest-modal-close {
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 17px;
+  right: 18px;
+  border: 0;
+  background: transparent;
+  color: var(--color-ink);
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.interest-modal-close:hover { color: var(--color-accent); }
+
+.interest-modal-image {
+  min-height: 230px;
+  margin-bottom: 25px;
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--color-line);
+  background: var(--color-canvas);
+  color: var(--color-muted);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.interest-modal-copy p {
+  margin-bottom: 0;
+  color: var(--color-ink-soft);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
 
 /* Contact */
 
@@ -692,6 +782,7 @@ body.modal-open { overflow: hidden; }
   .resume-date { margin-bottom: 8px; font-size: 0.94rem; }
   .resume-modal-panel { padding: 45px 26px 32px; }
   .resume-modal-copy li { font-size: 0.92rem; }
+  .interest-modal-panel { padding: 45px 26px 32px; }
   .background-grid, .expertise-grid { grid-template-columns: 1fr; }
   .background-grid { gap: 55px; }
   .expertise-grid { border-top: 0; }
